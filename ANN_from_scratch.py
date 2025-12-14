@@ -15,7 +15,7 @@ def vectorize(labels, num=10): #Convert numbers into 1x10 vector
 train_labels_v = vectorize(train_labels)
 test_labels_v  = vectorize(test_labels)
 
-# Initializes few parameters
+#Initializes few parameters
 input_nodes  = 784
 hidden_nodes = 128
 output_nodes = 10
@@ -24,14 +24,14 @@ lr = 0.1
 epochs = 30
 batch_size = 128 
 
-# Get random values for the weight and biases
+#Get random values for the weight and biases
 W1 = np.random.randn(input_nodes, hidden_nodes) / input_nodes
 b1 = np.zeros((1, hidden_nodes))
 
 W2 = np.random.randn(hidden_nodes, output_nodes) / input_nodes
 b2 = np.zeros((1, output_nodes))
 
-# Activation functions
+#Activation functions
 def relu(x):
     return np.maximum(0, x)
 
@@ -79,7 +79,7 @@ for epoch in range(epochs):
 
     print(f"Epoch {epoch+1}/{epochs}, Loss = {loss:.4f}")
 
-# Test accuracy
+#Test accuracy
 z1 = test_images @ W1 + b1 
 a1 = relu(z1)
 z2 = a1 @ W2 + b2
@@ -93,3 +93,4 @@ plt.imshow(test_images[i].reshape(28, 28), cmap='gray')
 plt.title(f"Prediction: {predictions[i]} | True: {test_labels[i]}")
 plt.axis('off')
 plt.show()
+
